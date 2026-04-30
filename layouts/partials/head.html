@@ -12,3 +12,6 @@
 
 {{ $css := resources.Get "css/main.css" | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+{{ $js := resources.Get "js/nav.js" | resources.Fingerprint }}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>

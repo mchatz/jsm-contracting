@@ -1,6 +1,6 @@
 ---
 title: "About JSM"
-lede: "A San Antonio commercial builder with a fifty-year working history in heavy timber, glulam, mass timber, and commercial wood framing. Founded by Tom Hatzenbuehler in 2006, built around a crew with decades of continuity."
+lede: "A San Antonio commercial builder with a fifty-year working history in wood framing. Founded by Tom Hatzenbuehler in 2006, built around a crew with decades of experience."
 ---
 
 ## A working history
