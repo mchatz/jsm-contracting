@@ -1,0 +1,25 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__col">
+      <a href="{{ "/" | relURL }}" class="wordmark">
+        <span class="wordmark__primary">JSM</span>
+        <span class="wordmark__sub">General Contracting</span>
+      </a>
+      <p style="margin-top: 1rem;">Heavy timber and mass timber.<br>San Antonio, since 1976.</p>
+    </div>
+
+    <div class="site-footer__col">
+      <span class="meta-label">Contact</span>
+      {{ with .Site.Params.email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+      {{ with .Site.Params.phone }}<p>{{ . }}</p>{{ end }}
+      {{ with .Site.Params.mailingAddress }}<p>{{ . }}</p>{{ end }}
+    </div>
+
+    <div class="site-footer__col">
+      <span class="meta-label">Service area</span>
+      <p>{{ .Site.Params.serviceArea }}</p>
+    </div>
+  </div>
+
+  <p class="site-footer__copy">© {{ now.Year }} JSM General Contracting LLC</p>
+</footer>

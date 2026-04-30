@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{/* Home page — hero, capability tiles, featured projects, closing band.
+     Layout to be filled in next. For now, render content as a placeholder. */}}
+<section class="section measure">
+  <h1>{{ .Site.Title }}</h1>
+  <p class="page-header__lede">{{ .Site.Params.description }}</p>
+  {{ .Content }}
+</section>
+{{ end }}

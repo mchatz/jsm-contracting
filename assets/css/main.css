@@ -1,0 +1,354 @@
+/* ==========================================================================
+   JSM General Contracting — main stylesheet
+   Design tokens, reset, and base styles.
+   See visual design decisions.md in the Obsidian vault for the source of truth.
+   ========================================================================== */
+
+:root {
+  /* color */
+  --color-bg:        #F7F3EC;
+  --color-type:      #1A1714;
+  --color-type-soft: #6B645C;
+  --color-teal:      #4A8278;
+  --color-copper:    #9C6B3F;
+  --color-rule:      rgba(26, 23, 20, 0.12);
+
+  /* type */
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* type scale (modular ~1.25) */
+  --fs-xs:   0.8125rem;   /* 13px */
+  --fs-sm:   0.9375rem;   /* 15px */
+  --fs-base: 1rem;        /* 16px */
+  --fs-md:   1.25rem;     /* 20px */
+  --fs-lg:   1.5625rem;   /* 25px */
+  --fs-xl:   2rem;        /* 32px */
+  --fs-2xl:  2.75rem;     /* 44px */
+  --fs-3xl:  3.75rem;     /* 60px — hero */
+
+  /* spacing scale */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 2rem;
+  --sp-4: 4rem;
+  --sp-5: 6rem;
+  --sp-6: 8rem;
+
+  /* layout */
+  --width-text:      680px;
+  --width-container: 1280px;
+  --gutter-mobile:   1.25rem;
+  --gutter-desktop:  2rem;
+
+  /* motion */
+  --t-fast: 150ms ease-out;
+  --t-med:  300ms ease-out;
+}
+
+/* reset / base ------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--color-type);
+  background: var(--color-bg);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-teal);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity var(--t-fast);
+}
+a:hover { opacity: 0.7; }
+
+/* type --------------------------------------------------------------------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  margin: 0 0 var(--sp-2);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--fs-2xl); font-weight: 600; }
+h2 { font-size: var(--fs-lg);  font-weight: 500; }
+h3 { font-size: var(--fs-md);  font-weight: 500; }
+
+p { margin: 0 0 var(--sp-2); }
+
+.mono, .meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+}
+
+.meta-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-type-soft);
+}
+
+blockquote {
+  margin: var(--sp-3) 0;
+  padding: 0;
+  font-style: italic;
+  font-size: var(--fs-md);
+  line-height: 1.45;
+}
+blockquote cite {
+  display: block;
+  margin-top: var(--sp-1);
+  font-style: normal;
+  font-size: var(--fs-sm);
+  color: var(--color-type-soft);
+}
+
+/* layout primitives -------------------------------------------------------- */
+
+.container {
+  max-width: var(--width-container);
+  margin-inline: auto;
+  padding-inline: var(--gutter-mobile);
+}
+
+.measure {
+  max-width: var(--width-text);
+  margin-inline: auto;
+  padding-inline: var(--gutter-mobile);
+}
+
+.bleed {
+  width: 100%;
+}
+
+.section {
+  padding-block: var(--sp-4);
+}
+.section--lg { padding-block: var(--sp-5); }
+
+@media (min-width: 640px) {
+  .container, .measure {
+    padding-inline: var(--gutter-desktop);
+  }
+  .section    { padding-block: var(--sp-5); }
+  .section--lg { padding-block: var(--sp-6); }
+}
+
+/* buttons ------------------------------------------------------------------ */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--color-teal);
+  color: var(--color-teal);
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--t-fast), color var(--t-fast);
+}
+.btn:hover {
+  border-color: var(--color-copper);
+  color: var(--color-copper);
+  opacity: 1;
+}
+
+/* header ------------------------------------------------------------------- */
+
+.site-header {
+  width: 100%;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.site-header__inner {
+  max-width: var(--width-container);
+  margin-inline: auto;
+  padding: var(--sp-2) var(--gutter-mobile);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+@media (min-width: 640px) {
+  .site-header__inner { padding-inline: var(--gutter-desktop); }
+}
+
+.wordmark {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-type);
+  line-height: 1;
+}
+.wordmark:hover { opacity: 1; }
+
+.wordmark__primary {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  letter-spacing: -0.01em;
+}
+.wordmark__sub {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;       /* 11px */
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 0.25rem;
+  color: var(--color-type);
+}
+.wordmark__rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--color-copper);
+  margin-top: 0.4rem;
+}
+
+/* nav ---------------------------------------------------------------------- */
+
+.site-nav {
+  display: none;
+}
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--sp-3);
+}
+.site-nav__link {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-type);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--t-fast);
+}
+.site-nav__link:hover {
+  border-bottom-color: var(--color-copper);
+  opacity: 1;
+}
+.site-nav__link--active {
+  border-bottom-color: var(--color-teal);
+}
+
+@media (min-width: 640px) {
+  .site-nav { display: block; }
+  .site-nav-toggle { display: none; }
+}
+
+/* mobile nav toggle (placeholder — JS comes later) */
+.site-nav-toggle {
+  background: none;
+  border: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-type);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* transparent-on-home variant --------------------------------------------- */
+
+.body--home .site-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: transparent;
+  border-bottom: 0;
+  z-index: 10;
+}
+
+/* footer ------------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 2px solid var(--color-teal);
+  margin-top: var(--sp-6);
+  padding-block: var(--sp-4);
+  font-size: var(--fs-sm);
+}
+
+.site-footer__inner {
+  max-width: var(--width-container);
+  margin-inline: auto;
+  padding-inline: var(--gutter-mobile);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-3);
+}
+
+@media (min-width: 640px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-inline: var(--gutter-desktop);
+  }
+}
+
+.site-footer__col p { margin: 0 0 var(--sp-1); }
+.site-footer__col .meta-label { display: block; margin-bottom: 0.25rem; }
+
+.site-footer__copy {
+  margin-top: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--color-type-soft);
+  text-align: center;
+}
+
+/* page header (non-home) --------------------------------------------------- */
+
+.page-header {
+  padding-block: var(--sp-4) var(--sp-3);
+  max-width: var(--width-text);
+  margin-inline: auto;
+  padding-inline: var(--gutter-mobile);
+}
+.page-header h1 {
+  padding-bottom: var(--sp-2);
+  border-bottom: 3px solid var(--color-teal);
+}
+.page-header__lede {
+  font-size: var(--fs-md);
+  color: var(--color-type-soft);
+  margin-top: var(--sp-2);
+}
+
+@media (min-width: 640px) {
+  .page-header {
+    padding-block: var(--sp-4) var(--sp-3);
+    padding-inline: var(--gutter-desktop);
+  }
+}

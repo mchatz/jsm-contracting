@@ -1,0 +1,23 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="{{ "/" | relURL }}" class="wordmark" aria-label="{{ .Site.Title }}">
+      <span class="wordmark__primary">JSM</span>
+      <span class="wordmark__sub">General Contracting</span>
+      <span class="wordmark__rule" aria-hidden="true"></span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        {{- $currentPage := . -}}
+        {{- range .Site.Menus.main }}
+          {{- $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) -}}
+          <li>
+            <a class="site-nav__link{{ if $active }} site-nav__link--active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a>
+          </li>
+        {{- end }}
+      </ul>
+    </nav>
+
+    <button class="site-nav-toggle" aria-label="Toggle menu">Menu</button>
+  </div>
+</header>

@@ -1,0 +1,51 @@
+baseURL = 'https://jsmgeneralcontracting.com/'
+locale = 'en-us'
+title = 'JSM General Contracting'
+defaultContentLanguage = 'en'
+
+# No theme — custom layouts live at site root in /layouts.
+
+enableRobotsTXT = true
+enableGitInfo = false
+
+# Disable default taxonomies — we don't use categories or tags.
+disableKinds = ['taxonomy', 'term', 'RSS']
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+
+[params]
+  description = 'Heavy timber, glulam, and mass timber subcontracting. San Antonio. Since 1976.'
+  email = 'tom@jsmgeneralcontracting.com'
+  phone = ''
+  mailingAddress = 'PO Box 417, Adkins, TX 78101'
+  serviceArea = 'Central and South Texas; available to travel'
+
+[params.colors]
+  background = '#F7F3EC'
+  type = '#1A1714'
+  teal = '#4A8278'
+  copper = '#9C6B3F'
+
+[menu]
+  [[menu.main]]
+    name = 'Projects'
+    url = '/projects/'
+    weight = 10
+  [[menu.main]]
+    name = 'Services'
+    url = '/services/'
+    weight = 20
+  [[menu.main]]
+    name = 'About'
+    url = '/about/'
+    weight = 30
+  [[menu.main]]
+    name = 'Contact'
+    url = '/contact/'
+    weight = 40
