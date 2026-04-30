@@ -1,9 +1,89 @@
 {{ define "main" }}
-{{/* Home page — hero, capability tiles, featured projects, closing band.
-     Layout to be filled in next. For now, render content as a placeholder. */}}
-<section class="section measure">
-  <h1>{{ .Site.Title }}</h1>
-  <p class="page-header__lede">{{ .Site.Params.description }}</p>
-  {{ .Content }}
+
+{{/* ---------- hero ---------- */}}
+{{ $hero := resources.Get "images/hero/home-hero.jpg" }}
+{{ $heroLg := $hero.Resize "2000x q85" }}
+{{ $heroMd := $hero.Resize "1400x q85" }}
+{{ $heroSm := $hero.Resize "900x q85" }}
+<section class="hero">
+  <img class="hero__img"
+       src="{{ $heroMd.RelPermalink }}"
+       srcset="{{ $heroSm.RelPermalink }} 900w, {{ $heroMd.RelPermalink }} 1400w, {{ $heroLg.RelPermalink }} 2000w"
+       sizes="100vw"
+       width="{{ $heroLg.Width }}"
+       height="{{ $heroLg.Height }}"
+       alt="Mass timber frame at The Soto, San Antonio"
+       fetchpriority="high">
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__content">
+    <h1 class="hero__headline">Heavy timber, glulam, and mass timber subcontracting.<br>San Antonio. Since 1976.</h1>
+    <p class="hero__sub">A specialty heavy timber, glulam, and mass timber subcontractor based in San Antonio, with full general contracting on commercial work where it fits. Founder still bids the work. Same lead carpenters, decades in.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--on-dark" href="{{ "/projects/" | relURL }}">See the projects</a>
+      <a class="btn btn--on-dark" href="{{ "/contact/" | relURL }}">Call Tom</a>
+    </div>
+  </div>
 </section>
+
+{{/* ---------- capability tiles ---------- */}}
+<section class="section tiles">
+  <div class="container">
+    <h2 class="section__heading">What we do</h2>
+    <div class="tiles__grid">
+      <article class="tile">
+        <h3 class="tile__title">Heavy timber &amp; glulam</h3>
+        <p>Exposed structural timber and glue-laminated assemblies — long spans, post-and-beam, the joinery that has to read clean from the finished floor.</p>
+      </article>
+      <article class="tile">
+        <h3 class="tile__title">Mass timber &amp; CLT erection</h3>
+        <p>One of a small handful of Texas crews that handles mass timber erection. Worked on The Soto and other landmark Texas mass timber buildings as the erection sub.</p>
+      </article>
+      <article class="tile">
+        <h3 class="tile__title">Commercial wood framing</h3>
+        <p>Including on-site truss construction — uncommon scope most framers won't touch. Repeat framing sub on HEB store builds across San Antonio.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{{/* ---------- featured projects ---------- */}}
+{{ $featured := slice
+  (dict "slug" "the-soto"   "title" "The Soto"                  "meta" "Mass timber erection" "src" "images/projects/the-soto-1.jpg")
+  (dict "slug" "heb"        "title" "HEB stores"                "meta" "Wood framing · on-site trusses" "src" "images/projects/heb-3.jpg")
+  (dict "slug" "la-cantera" "title" "La Cantera Boulevard"      "meta" "Heavy timber porte-cochère" "src" "images/projects/la-cantera-1.jpg")
+}}
+<section class="section featured">
+  <div class="container">
+    <h2 class="section__heading">Selected projects</h2>
+    <div class="featured__grid">
+      {{ range $featured }}
+        {{ $img := resources.Get .src }}
+        {{ $tile := $img.Fill "1200x800 q85" }}
+        <a class="featured-tile" href="{{ printf "/projects/#%s" .slug | relURL }}">
+          <figure class="featured-tile__figure">
+            <img src="{{ $tile.RelPermalink }}"
+                 width="{{ $tile.Width }}"
+                 height="{{ $tile.Height }}"
+                 alt="{{ .title }}"
+                 loading="lazy">
+          </figure>
+          <p class="featured-tile__caption">
+            <span class="featured-tile__title">{{ .title }}</span>
+            <span class="featured-tile__meta">{{ .meta }}</span>
+          </p>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ---------- closing band ---------- */}}
+<section class="section closing-band">
+  <div class="closing-band__inner">
+    <h2>Same crew. Same standards. Decades in.</h2>
+    <p>JSM stays small on purpose. The lead carpenters have been with Tom for most of their careers, and the person running your job is the person who bid it. That's the entire pitch — and the reason the work holds up.</p>
+    <a class="btn" href="{{ "/about/" | relURL }}">About JSM →</a>
+  </div>
+</section>
+
 {{ end }}
