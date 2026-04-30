@@ -9,17 +9,20 @@
     toggle.textContent = open ? 'Close' : 'Menu';
   }
 
+  // Always start closed — also handles bfcache / restored page loads
+  window.addEventListener('pageshow', function () { setOpen(false); });
+
   toggle.addEventListener('click', function () {
     setOpen(!document.body.classList.contains('nav-open'));
   });
 
-  // Close on Escape and on link click
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
       setOpen(false);
       toggle.focus();
     }
   });
+
   nav.addEventListener('click', function (e) {
     if (e.target.matches('.site-nav__link')) setOpen(false);
   });
