@@ -1,6 +1,6 @@
 ---
 title: "Get in touch"
-lede: "For project inquiries, bids, or questions, reach Tom directly. No form — emails and calls only, so the conversation lives in your inbox."
+lede: "For project inquiries, bids, or questions, reach Tom directly."
 ---
 
 - **Tom Hatzenbuehler**, owner
