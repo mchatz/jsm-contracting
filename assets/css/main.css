@@ -140,6 +140,7 @@ blockquote cite {
   margin-inline: auto;
   padding-inline: var(--gutter-mobile);
 }
+.measure > :first-child { margin-top: 0; }
 
 .bleed {
   width: 100%;
@@ -154,8 +155,8 @@ blockquote cite {
   .container, .measure {
     padding-inline: var(--gutter-desktop);
   }
-  .section    { padding-block: var(--sp-5); }
-  .section--lg { padding-block: var(--sp-6); }
+  .section    { padding-block: var(--sp-4); }
+  .section--lg { padding-block: var(--sp-5); }
 }
 
 /* buttons ------------------------------------------------------------------ */
@@ -350,10 +351,10 @@ blockquote cite {
   border-bottom: 0;
   z-index: 10;
 }
-.body--home .wordmark,
-.body--home .wordmark__primary,
-.body--home .wordmark__sub { color: var(--color-bg); }
-.body--home .wordmark__rule { background: var(--color-copper); }
+.body--home .site-header .wordmark,
+.body--home .site-header .wordmark__primary,
+.body--home .site-header .wordmark__sub { color: var(--color-bg); }
+.body--home .site-header .wordmark__rule { background: var(--color-copper); }
 .body--home .site-nav__link { color: var(--color-bg); }
 .body--home .site-nav-toggle { color: var(--color-bg); }
 
@@ -361,7 +362,7 @@ blockquote cite {
 
 .site-footer {
   border-top: 2px solid var(--color-teal);
-  margin-top: var(--sp-6);
+  margin-top: var(--sp-3);
   padding-block: var(--sp-4);
   font-size: var(--fs-sm);
 }
@@ -608,14 +609,14 @@ blockquote cite {
 /* projects ----------------------------------------------------------------- */
 
 .project {
-  max-width: 960px;
+  max-width: var(--width-text);
   margin: 0 auto;
   padding: var(--sp-4) var(--gutter-mobile);
   border-top: 1px solid var(--color-rule);
 }
 .project:first-of-type {
   border-top: 0;
-  padding-top: var(--sp-3);
+  padding-top: 0;
 }
 
 .project h2 {
@@ -664,7 +665,7 @@ blockquote cite {
 
 @media (min-width: 640px) {
   .project {
-    padding-block: var(--sp-5);
+    padding-block: var(--sp-4);
     padding-inline: var(--gutter-desktop);
   }
 }

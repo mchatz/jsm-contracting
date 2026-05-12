@@ -20,7 +20,7 @@ disableKinds = ['taxonomy', 'term', 'RSS']
     startLevel = 2
 
 [params]
-  description = 'Heavy timber, glulam, and mass timber subcontracting. San Antonio. Since 1976.'
+  description = 'Specialty timber subcontracting in San Antonio. Heavy timber, glulam, and mass timber. Founded 2006.'
   email = 'tom@jsmgeneralcontracting.com'
   phone = ''
   mailingAddress = 'PO Box 417, Adkins, TX 78101'

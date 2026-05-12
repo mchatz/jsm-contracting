@@ -1,6 +1,6 @@
 ---
 title: "Selected projects"
-lede: "A working sample of JSM projects. Most are in San Antonio and the Hill Country; we travel for the right job."
+lede: "A sample of JSM projects."
 layout: "projects"
 ---
 
@@ -10,7 +10,7 @@ layout: "projects"
 
 <p class="project__meta">San Antonio · Subcontractor — mass timber erection · <a href="https://www.thesoto.com/" target="_blank" rel="noopener">thesoto.com</a></p>
 
-JSM erected the mass timber on The Soto, one of the notable mass timber commercial buildings in Texas. Mass timber erection is a narrow specialty in this market — a project of this scope means coordinating panel deliveries, rigging plans, and tolerances against an exposed structural system that doesn't forgive mistakes.
+JSM erected the mass timber on The Soto, one of the notable mass timber commercial buildings in Texas.
 
 {{< photo src="projects/the-soto-1.jpg" alt="The Soto under construction with mass timber frame exposed" >}}
 
@@ -24,7 +24,7 @@ JSM erected the mass timber on The Soto, one of the notable mass timber commerci
 
 <p class="project__meta">Multiple San Antonio locations · Subcontractor — wood framing, on-site truss construction</p>
 
-Repeat framing sub on HEB store builds in the San Antonio area, including 1604 & Bandera (on-site truss construction) and Southtown (wood framing). The 1604 & Bandera store included on-site truss construction — cut and raised in place rather than delivered prefab. HEB's bar on store construction is high; JSM keeps getting the call.
+Repeat framing sub on HEB store builds in the San Antonio area, including 1604 & Bandera and Southtown.
 
 {{< photo src="projects/heb-2.jpg" alt="Exposed roof trusses inside an HEB store" >}}
 
